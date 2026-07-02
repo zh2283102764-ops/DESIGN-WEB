@@ -185,51 +185,51 @@ export default function App() {
   // UI Slide data definition containing the 12 custom mobile PNG layouts for the Music App
   const UI_SLIDES = [
     {
-      title: 'AI 音乐智能流转与播放大盘',
-      englishTitle: 'AI Music Flow & Playback Dashboard',
-      image: 'https://bee-reg-ab.imagency.cn/e/3f5b8f4298fa2d67ac20ca7cce983af4.jpg',
-      desc: '聚合实时音频流转率、流派能量分布、动态赫兹与高维均衡器参数，基于玻璃拟态组件实现无感音频交互。',
-      englishDesc: 'Main hub aggregating real-time audio streams, genre energy metrics, Hertz waveforms, and high-dimensional EQ controls in glassmorphic cards.',
-      tag: 'Dashboard',
-      flow: 'core',
+      title: '数字资产包与曲库离线管理',
+      englishTitle: 'Offline Library & Digital Asset Packages',
+      image: 'https://bee-reg-ab.imagency.cn/e/0e67a0f0f6adc37159aef9f0397d6534.png',
+      desc: '查看已下载和离线缓存的高解析度音轨包，带有存储状态智能分析和极简数据一键清理。',
+      englishDesc: 'Offline high-resolution audio asset packages with intelligent storage analysis and one-click cache purging.',
+      tag: 'Offline Pack',
+      flow: 'settings',
       metrics: [
-        { label: 'Refresh Rate', value: '120Hz' },
-        { label: 'Audio Bitrate', value: '320kbps' },
-        { label: 'EQ Channels', value: '10 Bands' }
+        { label: 'Offline Tracks', value: '1,420 Songs' },
+        { label: 'Cache Usage', value: '45.8 GB' },
+        { label: 'Hi-Res Match', value: '100%' }
       ]
     },
     {
-      title: '多维音频波形与频段解析曲线',
-      englishTitle: 'Multi-Band Audio Waveform Telemetry',
-      image: 'https://bee-reg-ab.imagency.cn/e/876f5355a329f615030b705225b3baa4.jpg',
-      desc: '利用毫秒级时序频域图表实时展示音频信号输出波形，通过动态阻尼与滑动视窗捕捉高精度的泛音走势。',
-      englishDesc: 'High-precision real-time audio frequency telemetry showcasing output waves with fluid damping and timeline harmonics scrubbing.',
-      tag: 'Waveform',
-      flow: 'core',
+      title: '听觉节奏与心率同步散点图',
+      englishTitle: 'Rhythm-HRV Tempo Sync Analysis',
+      image: 'https://bee-reg-ab.imagency.cn/e/7fe4d8a9950837bad2265ef892fa57f8.png',
+      desc: '记录实时听觉刺激（BPM）与心率变异性（HRV）的离散散点图，直观映射音乐节奏对自主神经系统的调谐。',
+      englishDesc: 'HRV scatter plots measuring dynamic autonomic nervous responses synchronized directly with active audio tempo (BPM).',
+      tag: 'HRV Tempo Sync',
+      flow: 'settings',
       metrics: [
-        { label: 'Sampling Rate', value: '192kHz' },
-        { label: 'Resolution', value: '32-bit' },
-        { label: 'Spectral Nodes', value: '1.4k' }
+        { label: 'Tempo Range', value: '60-180BPM' },
+        { label: 'Coherence', value: 'Live' },
+        { label: 'Artifact Filter', value: 'Active' }
       ]
     },
     {
-      title: '听众勋章与乐迷成就墙',
-      englishTitle: 'Listener Progression & Badges Hub',
-      image: 'https://bee-reg-ab.imagency.cn/e/e9ce9853db3f2149810f63adc3ba1dc1.jpg',
-      desc: '数字化乐迷成长系统，集成每日听歌打卡、音乐风格版图解密以及专属玻璃态黑胶成就勋章。',
-      englishDesc: 'Gamified listener progression system featuring daily listening milestones, music genre unlock quests, and virtual glass vinyl badges.',
-      tag: 'Achievements',
-      flow: 'core',
+      title: '睡眠音频白噪音组合',
+      englishTitle: 'Sleep Soundscape Mixer',
+      image: 'https://bee-reg-ab.imagency.cn/e/e8dd61d98fa54bd3df14ac2a5b7cb414.png',
+      desc: '多通道环境白噪音、雨声、风声与脑波音乐混合器，支持分轨音量微调与睡眠深度曲线映射。',
+      englishDesc: 'Advanced environment mixing dashboard, allowing multi-track volume balance across rainfall, wind, waves and cerebral rhythm tracks.',
+      tag: 'Sound Mixer',
+      flow: 'sleep',
       metrics: [
-        { label: 'Vinyl Unlocks', value: '24 Badges' },
-        { label: 'Genre Mastery', value: '78%' },
-        { label: 'Level Cap', value: 'Lv.50' }
+        { label: 'Mixed Channels', value: '5 Tracks' },
+        { label: 'DSP Clock', value: '96kHz' },
+        { label: 'Binaural Sync', value: '98.4%' }
       ]
     },
     {
       title: '高分贝耳健康与噪声超限预警',
       englishTitle: 'Acoustic DB & Otological Risk Warning',
-      image: 'https://bee-reg-ab.imagency.cn/e/be411fb0b1068141b0e58c6b813eb245.jpg',
+      image: 'https://bee-reg-ab.imagency.cn/e/af9a0055086c5b6e00b75d13cf7200e9.png',
       desc: '监测耳机长时间高分贝暴露风险，高对比度紧急声压预警，内置自适应听觉保护衰减指南。',
       englishDesc: 'Critical ear fatigue and decibel limit alerts in high-contrast styling, paired with dynamic protective audio attenuation steps.',
       tag: 'Ear Alert',
@@ -243,7 +243,7 @@ export default function App() {
     {
       title: '助眠声学模式与脑波韵律模型',
       englishTitle: 'Sleep Soundscape & Rhythm Model',
-      image: 'https://bee-reg-ab.imagency.cn/e/10ce07a8a885e903b06c99ebc0b5d6a0.jpg',
+      image: 'https://bee-reg-ab.imagency.cn/e/4d44a3798e3cf013bfc249d048e27bcc.png',
       desc: '挖掘白噪声与双耳节拍对脑波节奏的谐振，将睡眠环境音效凝练为高直观度的睡前脑波共鸣环形得分。',
       englishDesc: 'Advanced sleep-induction acoustics analysis summarizing brainwave entrainment and pink noise resonance into intuitive circadian rings.',
       tag: 'Soundscape',
@@ -255,39 +255,95 @@ export default function App() {
       ]
     },
     {
+      title: '多维音频波形与频段解析曲线',
+      englishTitle: 'Multi-Band Audio Waveform Telemetry',
+      image: 'https://bee-reg-ab.imagency.cn/e/c423d5b6673cc1e6b7fc4ab148e99a87.png',
+      desc: '利用毫秒级时序频域图表实时展示音频信号输出波形，通过动态阻尼与滑动视窗捕捉高精度的泛音走势。',
+      englishDesc: 'High-precision real-time audio frequency telemetry showcasing output waves with fluid damping and timeline harmonics scrubbing.',
+      tag: 'Waveform',
+      flow: 'core',
+      metrics: [
+        { label: 'Sampling Rate', value: '192kHz' },
+        { label: 'Resolution', value: '32-bit' },
+        { label: 'Spectral Nodes', value: '1.4k' }
+      ]
+    },
+    {
+      title: '多端协同设计与全局控制板',
+      englishTitle: 'Cross-Device Orchestration & Layout',
+      image: 'https://bee-reg-ab.imagency.cn/e/cc1e5be7514a7716985e5bfd553afbb8.png',
+      desc: '支持在多类自适应屏幕规格上流式呈现，优化桌面端、车辆终端等不同比例下的图形与交互排布。',
+      englishDesc: 'Fluidly adaptive interface layout scales across high-contrast environments ensuring responsive element positioning on variable screens.',
+      tag: 'Layout Grid',
+      flow: 'settings',
+      metrics: [
+        { label: 'Sync Delay', value: '15ms' },
+        { label: 'Adaptability', value: '100%' },
+        { label: 'Target Ratio', value: 'Auto' }
+      ]
+    },
+    {
+      title: '全景均衡器与高级音频输出设置',
+      englishTitle: 'Master Equalizer & Pro Output Engine',
+      image: 'https://bee-reg-ab.imagency.cn/e/8ecad97350497f08ed6c9f3d515ade88.png',
+      desc: '专业级多通道均衡微调与数模转换（DAC）采样率锁定，优化耳机的瞬态响应与高低音质感。',
+      englishDesc: 'Studio-grade multichannel equalizer tweaking and hardware DAC sample rate locking to optimize dynamic transient response and timbre clarity.',
+      tag: 'Master EQ',
+      flow: 'settings',
+      metrics: [
+        { label: 'Channels', value: '10 Bands' },
+        { label: 'Pre-amp Gain', value: '-3.5dB' },
+        { label: 'Dithering', value: 'TDF' }
+      ]
+    },
+    {
+      title: 'AI 音乐智能流转与播放大盘',
+      englishTitle: 'AI Music Flow & Playback Dashboard',
+      image: 'https://bee-reg-ab.imagency.cn/e/0158649a2c36f8b6dbaeb000824fa43d.png',
+      desc: '聚合实时音频流转率、流派能量分布、动态赫兹与高维均衡器参数，基于玻璃拟态组件实现无感音频交互。',
+      englishDesc: 'Main hub aggregating real-time audio streams, genre energy metrics, Hertz waveforms, and high-dimensional EQ controls in glassmorphic cards.',
+      tag: 'Dashboard',
+      flow: 'core',
+      metrics: [
+        { label: 'Refresh Rate', value: '120Hz' },
+        { label: 'Audio Bitrate', value: '320kbps' },
+        { label: 'EQ Channels', value: '10 Bands' }
+      ]
+    },
+    {
+      title: '听众勋章与乐迷成就墙',
+      englishTitle: 'Listener Progression & Badges Hub',
+      image: 'https://bee-reg-ab.imagency.cn/e/a586fe710ba9a4ff79aafb473527be7e.png',
+      desc: '数字化乐迷成长系统，集成每日听歌打卡、音乐风格版图解密以及专属玻璃态黑胶成就勋章。',
+      englishDesc: 'Gamified listener progression system featuring daily listening milestones, music genre unlock quests, and virtual glass vinyl badges.',
+      tag: 'Achievements',
+      flow: 'core',
+      metrics: [
+        { label: 'Vinyl Unlocks', value: '24 Badges' },
+        { label: 'Genre Mastery', value: '78%' },
+        { label: 'Level Cap', value: 'Lv.50' }
+      ]
+    },
+    {
       title: '微观睡眠音疗频段拆解',
-      englishTitle: 'Sleep Audio Frequency Breakdown',
-      image: 'https://bee-reg-ab.imagency.cn/e/69ddff0ab8e33a3585a4c5c617de7b89.jpg',
-      desc: '时序直观展示白噪声、大自然环境音与轻音乐等不同频域的声音对夜间睡眠周期的诱导状态，提供多点数据悬停探针。',
-      englishDesc: 'Hypnogram display tracking transitions between deep, light, and REM stages with interactive data probing tools.',
-      tag: 'Audio Cycle',
+      englishTitle: 'Micro-Sleep Sound Therapy Frequency Breakdown',
+      image: 'https://bee-reg-ab.imagency.cn/e/3eabd64a212d23e02121b1126fd2c4eb.png',
+      desc: '利用高频赫兹时域图解剖深度睡眠脑波段分布，支持多频段音疗阻抗与脑电状态映射。',
+      englishDesc: 'Deep sleep soundscape analyzer charting brainwave frequency curves and EEG state coordination metrics.',
+      tag: 'Sound Therapy',
       flow: 'sleep',
       metrics: [
-        { label: 'Acoustic Phases', value: '4 Cycles' },
-        { label: 'Deep Sync Ratio', value: '25.4%' },
-        { label: 'Probe Interval', value: '1min' }
+        { label: 'Frequency Range', value: '0.5-4Hz Delta' },
+        { label: 'Coherence Index', value: '94.2%' },
+        { label: 'Noise Rejection', value: '-42dB' }
       ]
     },
     {
-      title: 'AI 音乐智能推荐与风格分流主站',
-      englishTitle: 'AI Music Curator & Genre Routing Hub',
-      image: 'https://bee-reg-ab.imagency.cn/e/3e1ee4bbde07f733e3892ad6bc90f3ed.jpg',
-      desc: 'AI智能音乐品味诊断与流派跨界分流入口，多卡片流式排布，直观呈现多维乐感与情感图谱。',
-      englishDesc: 'AI-driven musical taste triage and crossover routing engine, presenting intuitive aesthetic preference maps in flat cards.',
-      tag: 'Curator',
-      flow: 'medical',
-      metrics: [
-        { label: 'Genre Accuracy', value: '94.5%' },
-        { label: 'Style Maps', value: '32 Genres' },
-        { label: 'Response Time', value: 'Instant' }
-      ]
-    },
-    {
-      title: 'AI 智能音乐创作与歌单助理对话',
-      englishTitle: 'AI Co-Writer & Playlist Assistant Chat',
-      image: 'https://bee-reg-ab.imagency.cn/e/07aeef762e89fb96ad3f265307e40a29.jpg',
-      desc: '人性化流式AI助理对话界面，集成曲风标签一键生成、哼唱旋律分析、Prompt快速生成歌单等交互。',
-      englishDesc: 'Interactive streaming chat with generative style tags, melody input analysis, and immediate natural language-to-playlist compilation.',
+      title: 'AI 听觉医疗健康诊断中枢',
+      englishTitle: 'AI Audiology & Acoustic Diagnosis',
+      image: 'https://bee-reg-ab.imagency.cn/e/9505d2cdddaf0ac564d86e679814badc.png',
+      desc: '结合端侧大语言模型实现对用户日常听力损伤与突发性耳鸣的智能问诊、听敏度评估与自适应声学保护。',
+      englishDesc: 'AI audiology diagnostic assistant providing standard smart triage, active tinnitus assessment, and protective hearing guides.',
       tag: 'AI Assistant',
       flow: 'medical',
       metrics: [
@@ -297,23 +353,9 @@ export default function App() {
       ]
     },
     {
-      title: '每日音乐心情与听歌随笔采集',
-      englishTitle: 'Daily Music Mood & Journal Logger',
-      image: 'https://bee-reg-ab.imagency.cn/e/978752270061885a06d114c48a501981.jpg',
-      desc: '极简的多模态音乐心情、当天灵感旋律以及音量喜好随笔卡片，让聆听感悟随手记录无摩擦。',
-      englishDesc: 'Elegant micro-journal for capturing listening moods, melody sparks, and user audio preference logs to reduce record friction.',
-      tag: 'Mood Log',
-      flow: 'medical',
-      metrics: [
-        { label: 'Mood Tracks', value: '3 Items' },
-        { label: 'Save Latency', value: '30ms' },
-        { label: 'Creative Friction', value: 'Zero' }
-      ]
-    },
-    {
       title: '高端无线音频与耳机功放配置',
       englishTitle: 'Smart Audio Transceiver & Amp Config',
-      image: 'https://bee-reg-ab.imagency.cn/e/6794251565686eb9fa2ee24811a5a4ff.jpg',
+      image: 'https://bee-reg-ab.imagency.cn/e/e39988fc1c018877d0c27fc783e1f40a.png',
       desc: '蓝牙音频解码器（LDAC、APTX Lossless）与前端耳机放大器连接管理，支持自定义采样率与低功耗解码微调。',
       englishDesc: 'Advanced Bluetooth codec (LDAC/aptX) and headphone amplifier IoT manager, supporting dynamic DAC sample rate tweaking.',
       tag: 'DAC Settings',
@@ -325,23 +367,9 @@ export default function App() {
       ]
     },
     {
-      title: '听觉节奏与心率同步散点图',
-      englishTitle: 'Rhythm-HRV Tempo Sync Analysis',
-      image: 'https://bee-reg-ab.imagency.cn/e/5b57aa7e473b9303f97159bcd86ae79b.jpg',
-      desc: '记录实时听觉刺激（BPM）与心率变异性（HRV）的离散散点图，直观映射音乐节奏对自主神经系统的调谐。',
-      englishDesc: 'HRV scatter plots measuring dynamic autonomic nervous responses synchronized directly with active audio tempo (BPM).',
-      tag: 'HRV Tempo Sync',
-      flow: 'settings',
-      metrics: [
-        { label: 'Tempo Range', value: '60-180BPM' },
-        { label: 'Coherence', value: 'Live' },
-        { label: 'Artifact Filter', value: 'Active' }
-      ]
-    },
-    {
       title: '三维全景空间音频声场雷达',
       englishTitle: '3D Spatial Audio Soundstage Radar',
-      image: 'https://bee-reg-ab.imagency.cn/e/652b5956b6f9163ee84903a60ab90e26.jpg',
+      image: 'https://bee-reg-ab.imagency.cn/e/42db0ec9055142047e96f45847d78a2f.png',
       desc: '结合头部追踪传感器的三维环绕空间音效热力图，带有高度轴定位、实时多声道声源运动拟合与声像偏置计算。',
       englishDesc: 'Outdoor-equivalent soundstage vector mapping head-tracking dynamic spatial audio orbits and real-time multichannel panning.',
       tag: 'Spatial Radar',
@@ -355,7 +383,7 @@ export default function App() {
     {
       title: '个人云端音乐中心与账户同步',
       englishTitle: 'Personal Cloud Library & Account Sync',
-      image: 'https://bee-reg-ab.imagency.cn/e/cd4876496877e3308bc31148bad86679.png',
+      image: 'https://bee-reg-ab.imagency.cn/e/214eba8a1442651f0293e40604fb19d3.png',
       desc: '支持多端无缝同步，无损音轨云端备份与智能音乐包空间管理，呈现个人听歌成就档案与收藏夹。',
       englishDesc: 'Seamless multi-terminal synchronization, lossless track cloud backup, and space-optimized digital music package allocation with listener profiles.',
       tag: 'Cloud Sync',
@@ -367,37 +395,9 @@ export default function App() {
       ]
     },
     {
-      title: '数字资产包与曲库离线管理',
-      englishTitle: 'Offline Library & Digital Asset Packages',
-      image: 'https://bee-reg-ab.imagency.cn/e/a22345165ffd757151bed5466a35c829.jpg',
-      desc: '查看已下载和离线缓存的高解析度音轨包，带有存储状态智能分析和极简数据一键清理。',
-      englishDesc: 'Offline high-resolution audio asset packages with intelligent storage analysis and one-click cache purging.',
-      tag: 'Offline Pack',
-      flow: 'settings',
-      metrics: [
-        { label: 'Offline Tracks', value: '1,420 Songs' },
-        { label: 'Cache Usage', value: '45.8 GB' },
-        { label: 'Hi-Res Match', value: '100%' }
-      ]
-    },
-    {
-      title: '全景均衡器与高级音频输出设置',
-      englishTitle: 'Master Equalizer & Pro Output Engine',
-      image: 'https://bee-reg-ab.imagency.cn/e/d08c9977d48f170ae54bcd7c2b2db009.png',
-      desc: '专业级多通道均衡微调与数模转换（DAC）采样率锁定，优化耳机的瞬态响应与高低音质感。',
-      englishDesc: 'Studio-grade multichannel equalizer tweaking and hardware DAC sample rate locking to optimize dynamic transient response and timbre clarity.',
-      tag: 'Master EQ',
-      flow: 'settings',
-      metrics: [
-        { label: 'Channels', value: '10 Bands' },
-        { label: 'Pre-amp Gain', value: '-3.5dB' },
-        { label: 'Dithering', value: 'TDF' }
-      ]
-    },
-    {
       title: '听觉保护与音量限制',
       englishTitle: 'Acoustic Protection & Decibel Limit',
-      image: 'https://bee-reg-ab.imagency.cn/e/efdbfc3824cb24e6d48ccfb840f55279.png',
+      image: 'https://bee-reg-ab.imagency.cn/e/c615d3b12b5945fbbe35e6ba8fa1ae89.png',
       desc: '动态监测耳机音频压强，提供分贝极限锁定、双耳听觉疲劳自适应降噪及安全声压保护。',
       englishDesc: 'Advanced listening protection and volume capping telemetry, warning users on prolonged loud exposure risk.',
       tag: 'Ear Guard',
@@ -407,61 +407,15 @@ export default function App() {
         { label: 'Expose Limit', value: '45 Mins' },
         { label: 'Muffle Ratio', value: '-6.2dB' }
       ]
-    },
-    {
-      title: '睡眠音频白噪音组合',
-      englishTitle: 'Sleep Soundscape Mixer',
-      image: 'https://bee-reg-ab.imagency.cn/e/d29746764637226306ac5e3c32d9f22e.png',
-      desc: '多通道环境白噪音、雨声、风声与脑波音乐混合器，支持分轨音量微调与睡眠深度曲线映射。',
-      englishDesc: 'Advanced environment mixing dashboard, allowing multi-track volume balance across rainfall, wind, waves and cerebral rhythm tracks.',
-      tag: 'Sound Mixer',
-      flow: 'sleep',
-      metrics: [
-        { label: 'Mixed Channels', value: '5 Tracks' },
-        { label: 'DSP Clock', value: '96kHz' },
-        { label: 'Binaural Sync', value: '98.4%' }
-      ]
     }
   ];
 
   // Brand Slide data definition with user's images in page display order (Foundation first, Application last)
   const BRAND_SLIDES = [
     {
-      title: '品牌周边礼品规范',
-      englishTitle: 'Brand Gifts & Merchandise',
-      image: 'https://bee-reg-ab.imagency.cn/e/3eabd64a212d23e02121b1126fd2c4eb.png',
-      desc: '定制保温杯、环保手提袋、遮阳伞等高频商务礼品的品牌图案印制工艺标准。',
-      englishDesc: 'Layout guidelines and printing standards for branded thermo mugs, canvas bags, and umbrellas.',
-      tag: 'Merchandise'
-    },
-    {
-      title: '主标志设计规范',
-      englishTitle: 'Master Logo Spec',
-      image: 'https://bee-reg-ab.imagency.cn/e/0158649a2c36f8b6dbaeb000824fa43d.png',
-      desc: '峰致品牌核心徽标与字体组合规范，建立精确的网格定位 and 防白区范围。',
-      englishDesc: 'Core logo lockups, geometric calculation grids, and typographic safety margins.',
-      tag: 'Logo Spec'
-    },
-    {
-      title: '色彩系统与比例',
-      englishTitle: 'Color System',
-      image: 'https://bee-reg-ab.imagency.cn/e/c423d5b6673cc1e6b7fc4ab148e99a87.png',
-      desc: '物流专用安全冷光蓝、明艳橙以及中性灰等色彩系统的标准比例。',
-      englishDesc: 'Standard color formulas and contrast percentages of blue, orange, and gray.',
-      tag: 'Colors'
-    },
-    {
-      title: '品牌标准字体',
-      englishTitle: 'Brand Typography',
-      image: 'https://bee-reg-ab.imagency.cn/e/a586fe710ba9a4ff79aafb473527be7e.png',
-      desc: '品牌在数字化媒介与印刷媒介上的中英文标准字族及排版层级。',
-      englishDesc: 'Bilingual typography guidelines, approved typefaces, and layout scaling hierarchy.',
-      tag: 'Typography'
-    },
-    {
       title: '辅助图形系统 01',
       englishTitle: 'Supporting Graphics 01',
-      image: 'https://bee-reg-ab.imagency.cn/e/af9a0055086c5b6e00b75d13cf7200e9.png',
+      image: 'https://bee-reg-ab.imagency.cn/e/69ddff0ab8e33a3585a4c5c617de7b89.jpg',
       desc: '基于集装箱金属褶皱和冷链网格衍生出的抽象辅助图形条带。',
       englishDesc: 'Abstract branding shapes inspired by industrial container patterns and linear grids.',
       tag: 'Graphics 01'
@@ -469,31 +423,71 @@ export default function App() {
     {
       title: '辅助图形系统 02',
       englishTitle: 'Supporting Graphics 02',
-      image: 'https://bee-reg-ab.imagency.cn/e/4d44a3798e3cf013bfc249d048e27bcc.png',
+      image: 'https://bee-reg-ab.imagency.cn/e/be411fb0b1068141b0e58c6b813eb245.jpg',
       desc: '安全反光格纹和货箱网格的多样化辅助图形组合及应用。',
       englishDesc: 'Extended corporate graphic structures including caution grids and diagonal stripes.',
       tag: 'Graphics 02'
     },
     {
+      title: '物流作业人员服装',
+      englishTitle: 'Operations Workwear',
+      image: 'https://bee-reg-ab.imagency.cn/e/f52b3e45de0fce07bb88fc0815f71bd7.jpg',
+      desc: '现场操作人员、叉车司机及冷库管理员的反光工作服、安全帽及作业手套配色标准。',
+      englishDesc: 'Operational staff hi-vis jackets, safety helmets, and working uniforms color rules.',
+      tag: 'Workwear'
+    },
+    {
+      title: '色彩系统与比例',
+      englishTitle: 'Color System',
+      image: 'https://bee-reg-ab.imagency.cn/e/978752270061885a06d114c48a501981.jpg',
+      desc: '物流专用安全冷光蓝、明艳橙以及中性灰等色彩系统的标准比例。',
+      englishDesc: 'Standard color formulas and contrast percentages of blue, orange, and gray.',
+      tag: 'Colors'
+    },
+    {
+      title: '主标志设计规范',
+      englishTitle: 'Master Logo Spec',
+      image: 'https://bee-reg-ab.imagency.cn/e/3e1ee4bbde07f733e3892ad6bc90f3ed.jpg',
+      desc: '峰致品牌核心徽标与字体组合规范，建立精确的网格定位 and 防白区范围。',
+      englishDesc: 'Core logo lockups, geometric calculation grids, and typographic safety margins.',
+      tag: 'Logo Spec'
+    },
+    {
+      title: '生鲜配送冷链箱',
+      englishTitle: 'Cold Chain Package',
+      image: 'https://bee-reg-ab.imagency.cn/e/2f6f587f6c588b69b2e9da9d2e6dfa9c.jpg',
+      desc: '生鲜保温配送箱、周转保温泡沫箱以及物流胶带的标准印制版式规范。',
+      englishDesc: 'Design specifications and typography layout on corrugated and styrofoam cold chain boxes.',
+      tag: 'Packaging'
+    },
+    {
+      title: '品牌标准字体',
+      englishTitle: 'Brand Typography',
+      image: 'https://bee-reg-ab.imagency.cn/e/07aeef762e89fb96ad3f265307e40a29.jpg',
+      desc: '品牌在数字化媒介与印刷媒介上的中英文标准字族及排版层级。',
+      englishDesc: 'Bilingual typography guidelines, approved typefaces, and layout scaling hierarchy.',
+      tag: 'Typography'
+    },
+    {
       title: '企业办公事务用品',
       englishTitle: 'Corporate Stationery',
-      image: 'https://bee-reg-ab.imagency.cn/e/9505d2cdddaf0ac564d86e679814badc.png',
+      image: 'https://bee-reg-ab.imagency.cn/e/c823038ae169471669290d74decd6830.jpg',
       desc: '信封、信纸、便签、文件夹等常用办公用品标准版式排版设计规范。',
       englishDesc: 'Standard design specifications for corporate letterheads, envelopes, note cards, and folders.',
       tag: 'Stationery'
     },
     {
-      title: '员工徽章与胸卡规范',
-      englishTitle: 'ID Badge & Card Spec',
-      image: 'https://bee-reg-ab.imagency.cn/e/5f046d9a0c70e8b2f5745a7a1fc04311.png',
-      desc: '标准企业名片与员工ID胸卡版式、信息层级及高对比底色应用规范。',
-      englishDesc: 'Corporate business cards and staff identification badge layout grids and typography rules.',
-      tag: 'Identity Card'
+      title: '重型集装箱涂装规范',
+      englishTitle: 'Heavy Trailer Livery',
+      image: 'https://bee-reg-ab.imagency.cn/e/02548bb6cee16ee29e7296f7cfd52ba4.jpg',
+      desc: '40英尺冷链重型半挂集装箱车辆的侧面和尾部品牌标志涂装定位标准。',
+      englishDesc: 'Livery layout templates and side-graphics placement for heavy 40ft refrigerated freight trailers.',
+      tag: 'Heavy Trailer'
     },
     {
       title: '厂区导视与环境标识',
       englishTitle: 'Signage & Environmental Spec',
-      image: 'https://bee-reg-ab.imagency.cn/e/deb97d7c1a976338c6f94d717bd370b1.png',
+      image: 'https://bee-reg-ab.imagency.cn/e/3f5b8f4298fa2d67ac20ca7cce983af4.jpg',
       desc: '物流仓储园区户外发光字招牌、路牌指示及仓库入口导视系统的规范设计。',
       englishDesc: 'Outdoor illuminated corporate signage, directional boards, and storage facility labels.',
       tag: 'Signage'
@@ -501,50 +495,34 @@ export default function App() {
     {
       title: '数字应用与自适应网页',
       englishTitle: 'Digital Media Layout',
-      image: 'https://bee-reg-ab.imagency.cn/e/6009314b5249e50de0b0f44684c68dd9.png',
-      desc: '智能货运管理系统在手机客户端和官方网站的首屏品牌应用规范。',
+      image: 'https://bee-reg-ab.imagency.cn/e/e9ce9853db3f2149810f63adc3ba1dc1.jpg',
+      desc: '智能货运管理系统在手机客户端 and 官方网站的首屏品牌应用规范。',
       englishDesc: 'Adaptive layout standards for standard web screens and smartphone app headers.',
       tag: 'Digital UI'
     },
     {
       title: '大型干线集卡车身规范',
       englishTitle: 'Heavy Truck Livery',
-      image: 'https://bee-reg-ab.imagency.cn/e/e39988fc1c018877d0c27fc783e1f40a.png',
+      image: 'https://bee-reg-ab.imagency.cn/e/876f5355a329f615030b705225b3baa4.jpg',
       desc: '大型中远途冷链集装箱卡车车身品牌徽标定位、安全反光条与涂装比例。',
       englishDesc: 'Livery standard layout, large-scale logotype placement, and reflective caution lines for long-haul trucks.',
       tag: 'Heavy Truck'
     },
     {
-      title: '重型集装箱涂装规范',
-      englishTitle: 'Heavy Trailer Livery',
-      image: 'https://bee-reg-ab.imagency.cn/e/7fe4d8a9950837bad2265ef892fa57f8.png',
-      desc: '40英尺冷链重型半挂集装箱车辆的侧面和尾部品牌标志涂装定位标准。',
-      englishDesc: 'Livery layout templates and side-graphics placement for heavy 40ft refrigerated freight trailers.',
-      tag: 'Heavy Trailer'
+      title: '员工徽章与胸卡规范',
+      englishTitle: 'ID Badge & Card Spec',
+      image: 'https://bee-reg-ab.imagency.cn/e/10ce07a8a885e903b06c99ebc0b5d6a0.jpg',
+      desc: '标准企业名片与员工ID胸卡版式、信息层级及高对比底色应用规范。',
+      englishDesc: 'Corporate business cards and staff identification badge layout grids and typography rules.',
+      tag: 'Identity Card'
     },
     {
-      title: '物流作业人员服装',
-      englishTitle: 'Operations Workwear',
-      image: 'https://bee-reg-ab.imagency.cn/e/42db0ec9055142047e96f45847d78a2f.png',
-      desc: '现场操作人员、叉车司机及冷库管理员的反光工作服、安全帽及作业手套配色标准。',
-      englishDesc: 'Operational staff hi-vis jackets, safety helmets, and working uniforms color rules.',
-      tag: 'Workwear'
-    },
-    {
-      title: '生鲜配送冷链箱',
-      englishTitle: 'Cold Chain Package',
-      image: 'https://bee-reg-ab.imagency.cn/e/214eba8a1442651f0293e40604fb19d3.png',
-      desc: '生鲜保温配送箱、周转保温泡沫箱以及物流胶带的标准印制版式规范。',
-      englishDesc: 'Design specifications and typography layout on corrugated and styrofoam cold chain boxes.',
-      tag: 'Packaging'
-    },
-    {
-      title: '中轻型城配货车规范',
-      englishTitle: 'Medium & Light Truck Livery',
-      image: 'https://bee-reg-ab.imagency.cn/e/0e67a0f0f6adc37159aef9f0397d6534.png',
-      desc: '城市短途配送中卡及厢式轻卡车身标准标识和喷涂位置。',
-      englishDesc: 'Medium and light-duty inner-city delivery truck wrapping specifications.',
-      tag: 'Urban Truck'
+      title: '品牌周边礼品规范',
+      englishTitle: 'Brand Gifts & Merchandise',
+      image: 'https://bee-reg-ab.imagency.cn/e/a21b7acee1d814d3a6f00ce689daeef9.jpg',
+      desc: '定制保温杯、环保手提袋、遮阳伞等高频商务礼品的品牌图案印制工艺标准。',
+      englishDesc: 'Layout guidelines and printing standards for branded thermo mugs, canvas bags, and umbrellas.',
+      tag: 'Merchandise'
     }
   ];
 

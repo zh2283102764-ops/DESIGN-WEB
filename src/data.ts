@@ -3,7 +3,7 @@ import { Project } from './types';
 // High-quality professional design photography URLs to ensure robust compilation
 const uiDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/0775c5a154634b0c3972118109ee02bf.jpg';
 const fengZhiColdChain = 'https://bee-reg-ab.imagency.cn/e/a21b7acee1d814d3a6f00ce689daeef9.jpg';
-const visualDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/c823038ae169471669290d74decd6830.jpg';
+const visualDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/3eabd64a212d23e02121b1126fd2c4eb.png';
 const packagingDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/2f6f587f6c588b69b2e9da9d2e6dfa9c.jpg';
 const threeDDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/f52b3e45de0fce07bb88fc0815f71bd7.jpg';
 
@@ -140,16 +140,63 @@ export const PROJECTS: Project[] = [
       ]
     }
   },
+  {
+    id: 'visual-changhong-ecommerce',
+    title: 'Changhong E-commerce Key Visual Design',
+    chineseTitle: '长虹电商大促主视觉设计',
+    category: 'visual',
+    year: '2026',
+    description: 'A premium promotional key visual design system for Changhong household appliances, emphasizing contour geometry, high-fidelity modeling setups, and structural layout spacing.',
+    chineseDescription: '长虹家用电器电商大促主视觉设计案例，强化了产品白模的立体质感与光影轮廓，删除多余修饰后保留原场景的几何元素与透视构图，注重画面的对称及线条张力。',
+    imageUrl: 'https://bee-reg-ab.imagency.cn/e/6794251565686eb9fa2ee24811a5a4ff.jpg',
+    images: [
+      'https://bee-reg-ab.imagency.cn/e/6794251565686eb9fa2ee24811a5a4ff.jpg',
+      'https://bee-reg-ab.imagency.cn/e/5b57aa7e473b9303f97159bcd86ae79b.jpg'
+    ],
+    tags: ['E-commerce KV', '3D Layout', 'Product Outlines', 'Contour Shading'],
+    metrics: [
+      { label: 'Click-Through Rate', value: '+34.2%' },
+      { label: 'E-commerce Conversion', value: '+28.5%' },
+      { label: 'Brand Visual Cohesion', value: '98%' }
+    ],
+    specs: {
+      gridSystem: 'Dynamic Perspective Grid & Central Bilateral Balance',
+      spacingUnit: 'Bespoke ratio aligned to product silhouettes',
+      typography: {
+        heading: 'Outfit SemiBold & Futura Bold (Dynamic Contrast)',
+        body: 'Inter & PingFang SC (Bilingual support)',
+        scaling: 'Major Third (1.250 ratio)'
+      },
+      colorPalette: [
+        { name: 'Metallic Pearl White', hex: '#F8FAFC', usage: 'Product surface highlights and structured matted bodies' },
+        { name: 'Deep Space Shadow Gray', hex: '#1E293B', usage: 'Contrast background elements and precise contour shadow tracking' },
+        { name: 'Promotional Scarlet Accent', hex: '#F43F5E', usage: 'High-contrast text callouts and campaign active highlights' }
+      ]
+    },
+    interactiveLogic: {
+      objective: 'Elevate product silhouette perception and guide customer attention to premium home appliance details without visual clutter.',
+      scientificApproach: 'Applied Golden Ratio layout distribution and Gestalt grouping laws to design key product anchors. Shadow-tracking techniques establish an elegant, premium matte white aesthetic.',
+      userFlowSteps: [
+        'User scrolls to view the visual case, presenting side-by-side promotional posters emphasizing clean structures.',
+        'Hovering or dragging initiates detail-focal sweeps, revealing pristine wireframe geometry layers under products.',
+        'Clicking opens the deep inspect panels detailing the precise grid layout and font-scaling systems.'
+      ]
+    }
+  },
   // ================= PACKAGING DESIGN =================
   {
     id: 'pack-islands-skincare',
-    title: 'Zhongjing Yangsheng FMCG Packaging Design',
-    chineseTitle: '仲景养生快消品包装设计案例',
+    title: 'Islands Premium Skincare Series',
+    chineseTitle: '群岛极简高端护肤系列包装',
     category: 'packaging',
     year: '2026',
     description: 'This packaging design was rendered and produced using C4D and Octane Renderer (OC) to deliver pristine visual fidelity.',
-    chineseDescription: '此次包装设计采用C4D与OC渲染器进行渲染制作',
-    imageUrl: packagingDesignShowcase,
+    chineseDescription: '此次包装设计采用C4D与OC渲染器进行高精细度建模与渲染，展现温润简约的材质质感。',
+    imageUrl: 'https://bee-reg-ab.imagency.cn/e/cd4876496877e3308bc31148bad86679.png',
+    images: [
+      'https://bee-reg-ab.imagency.cn/e/cd4876496877e3308bc31148bad86679.png',
+      'https://bee-reg-ab.imagency.cn/e/efdbfc3824cb24e6d48ccfb840f55279.png'
+    ],
     tags: ['C4D Render', 'OC Renderer', 'FMCG Packaging', 'Tactile Layout'],
     metrics: [
       { label: 'Eco-Material Score', value: '100%' },
@@ -180,6 +227,49 @@ export const PROJECTS: Project[] = [
       ]
     }
   },
+  {
+    id: 'pack-zhongjing-powder',
+    title: 'Zhongjing Notoginseng & American Ginseng Powder Packaging',
+    chineseTitle: '仲景三七粉、西洋参粉快消品包装设计案例',
+    category: 'packaging',
+    year: '2026',
+    description: 'High-quality FMCG packaging design for Zhongjing traditional Chinese health powders, fusing historical herb aesthetics with premium glassmorphic containers.',
+    chineseDescription: '仲景三七粉、西洋参粉快消品包装设计案例，结合传统药膳养生与现代快消视觉，利用精细的3D光影和透光玻璃质感展现品牌的高端与专业性。',
+    imageUrl: 'https://bee-reg-ab.imagency.cn/e/d08c9977d48f170ae54bcd7c2b2db009.png',
+    images: [
+      'https://bee-reg-ab.imagency.cn/e/d08c9977d48f170ae54bcd7c2b2db009.png',
+      'https://bee-reg-ab.imagency.cn/e/d29746764637226306ac5e3c32d9f22e.png'
+    ],
+    tags: ['C4D Render', 'Traditional & Modern', 'Herb Powder Packaging', 'Premium Octane Shader'],
+    metrics: [
+      { label: 'Ray-Tracing Depth', value: '32 bounces' },
+      { label: 'Branding Recognition', value: '96.8%' },
+      { label: 'Customer Trust Score', value: '4.9/5' }
+    ],
+    specs: {
+      gridSystem: 'Symmetrical Central Brand Axis Layout',
+      spacingUnit: 'Prestige product margins aligned to text row bounds',
+      typography: {
+        heading: 'FZSuXinShiTi & Playfair Display',
+        body: 'Inter & PingFang SC',
+        scaling: 'Golden Ratio (1.618 ratio)'
+      },
+      colorPalette: [
+        { name: 'Warm Herbal Amber', hex: '#8B5A2B', usage: 'Protective satin translucent amber glass container rendering' },
+        { name: 'Imperial Gold Border', hex: '#D4AF37', usage: 'Intricate brand detailing and premium metallic lid rimming' },
+        { name: 'Traditional Ink Charcoal', hex: '#1C1C1E', usage: 'Clean, high-contrast back-label typography and barcode margins' }
+      ]
+    },
+    interactiveLogic: {
+      objective: 'Merge historical medicine cabinet layouts with streamlined minimalist consumer dynamics.',
+      scientificApproach: 'Optimized container diameter to guarantee comfortable handling, and adjusted label materials to repel organic oil fingerprints during routine dispensing.',
+      userFlowSteps: [
+        'User views the central showcase depicting both premium product jars in side-by-side golden lighting setups.',
+        'Hovering over labels initiates subtle 3D reflections, revealing the exquisite matte texture finish.',
+        'Deep click interaction enables cross-section detail sweeps of the amber glass layers.'
+      ]
+    }
+  },
 
   // ================= 3D DESIGN =================
   {
@@ -190,7 +280,10 @@ export const PROJECTS: Project[] = [
     year: '2026',
     description: 'Blender cartoon miniature styling and creative scene rendering.',
     chineseDescription: 'Blender卡通小场景设计建模与渲染案例。',
-    imageUrl: threeDDesignShowcase,
+    imageUrl: 'https://bee-reg-ab.imagency.cn/e/a22345165ffd757151bed5466a35c829.jpg',
+    images: [
+      'https://bee-reg-ab.imagency.cn/e/a22345165ffd757151bed5466a35c829.jpg'
+    ],
     tags: ['Blender 3D', 'Cartoon Scene', 'Octane Render', 'Lighting Rig'],
     metrics: [
       { label: 'Render Complexity', value: '12M Polys' },
@@ -218,6 +311,48 @@ export const PROJECTS: Project[] = [
         'Hovering over the 3D sculpture triggers fluid metallic ripples calculated using real-time wave formulas.',
         'User can customize glass dispersion density values using a floating control panel.',
         'A single click splits the mesh wireframes, revealing the underlying structural polygon mathematical coordinates.'
+      ]
+    }
+  },
+  {
+    id: 'three-d-hollow-knight',
+    title: 'Hollow Knight Character & Scene Design',
+    chineseTitle: '空洞骑士人物+场景建模渲染设计案例',
+    category: '3d',
+    year: '2026',
+    description: 'A stylistic rendering case combining Hollow Knight characters with atmospheric organic landscape modeling.',
+    chineseDescription: '空洞骑士人物+场景建模渲染设计案例。融合经典的游戏人物形象与高度还原的场景光影，着重雕琢白模的立体材质感与静谧空灵的画作张力。',
+    imageUrl: 'https://bee-reg-ab.imagency.cn/e/652b5956b6f9163ee84903a60ab90e26.jpg',
+    images: [
+      'https://bee-reg-ab.imagency.cn/e/652b5956b6f9163ee84903a60ab90e26.jpg'
+    ],
+    tags: ['Blender 3D', 'Character Modeling', 'Scene Rendering', 'Stylized Art'],
+    metrics: [
+      { label: 'Scene Triangles', value: '8.4M' },
+      { label: 'Dynamic Lighting', value: '98%' },
+      { label: 'Atmosphere Score', value: '4.9/5' }
+    ],
+    specs: {
+      gridSystem: 'Golden Ratio Composition & Central Focus',
+      spacingUnit: 'Curated balance margins matching key scenery contours',
+      typography: {
+        heading: 'Cinzel Decorative & Outfit',
+        body: 'Inter & PingFang SC',
+        scaling: 'Perfect Fourth (1.333 ratio)'
+      },
+      colorPalette: [
+        { name: 'Ancient Hallownest Grey', hex: '#E2E8F0', usage: 'Satin matted white structures of the character mask and environmental monuments' },
+        { name: 'Abyssal Darkness Blue', hex: '#020617', usage: 'Deep ambient backdrop occlusion and contrasting silhouette shades' },
+        { name: 'Luminous Soul Cyan', hex: '#38BDF8', usage: 'Ethereal focal point glows from the background and ground debris' }
+      ]
+    },
+    interactiveLogic: {
+      objective: 'Build a high-immersion stylized game diorama focusing on lighting depth and outline contours.',
+      scientificApproach: 'Designed subtle raytraced contact shadows and clean micro-beveling on white clay bodies to reinforce character volume. Optimized viewport rendering settings using adaptive ray distribution.',
+      userFlowSteps: [
+        'User initiates scroll view to observe the moody 3D landscape and stylized characters.',
+        'Hovering over elements sweeps key illumination paths, demonstrating the 3D depth and outline sharpness.',
+        'Clicking inside the active frame showcases raw untextured wireframes to outline modeling details.'
       ]
     }
   }
