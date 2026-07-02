@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'motion/react';
 import { 
   ArrowUpRight, 
   Cpu, 
@@ -90,17 +90,21 @@ export default function App() {
   // Navigation & Filtering
   const [activeTab, setActiveTab] = useState<CategoryId>('ui');
   const [language, setLanguage] = useState<'zh' | 'en'>('zh');
-  
-  // Interactive Science Lab States
-  const [borderRadius, setBorderRadius] = useState<number>(24); // in px, default to 24px (rounded-3xl) for a sleek frosted feel
-  const [backdropBlur, setBackdropBlur] = useState<number>(20); // in px
-  const [gridGap, setGridGap] = useState<number>(24); // in px
-  const [ambientAngle, setAmbientAngle] = useState<number>(135); // in degrees
-  const [glassOpacity, setGlassOpacity] = useState<number>(40); // in %, default to 40% for absolute high-end frosted look
-  const [inspectorMode, setInspectorMode] = useState<boolean>(false);
-  const [isConsoleExpanded, setIsConsoleExpanded] = useState<boolean>(true);
   const [isAboutOpen, setIsAboutOpen] = useState<boolean>(false);
-  const [gridOpacity, setGridOpacity] = useState<number>(20); // default to 20% transparent, adjustable in the panel
+  
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.set(e.clientX - 200);
+      mouseY.set(e.clientY - 200);
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, [mouseX, mouseY]);
   
   // Selected Project for Case Study Inspector
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -140,6 +144,11 @@ export default function App() {
   const [brandTilt, setBrandTilt] = useState({ rx: 0, ry: 0 });
   const [brandHoverPos, setBrandHoverPos] = useState({ x: 50, y: 50 });
   const [isBrandHovered, setIsBrandHovered] = useState<boolean>(false);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   const uiScrollRef = React.useRef<HTMLDivElement>(null);
   const brandScrollRef = React.useRef<HTMLDivElement>(null);
@@ -631,73 +640,50 @@ export default function App() {
   const bilingualLogic = selectedProject ? getBilingualInteractiveLogic(selectedProject.id, language) : null;
 
   // Mathematical translation coordinates for the bottom light gradients
-  const pinkX = Math.cos((ambientAngle * Math.PI) / 180) * 120;
-  const pinkY = Math.sin((ambientAngle * Math.PI) / 180) * 120;
-  const blueX = Math.cos(((ambientAngle + 180) * Math.PI) / 180) * 120;
-  const blueY = Math.sin(((ambientAngle + 180) * Math.PI) / 180) * 120;
+  const pinkX = Math.cos((135 * Math.PI) / 180) * 120;
+  const pinkY = Math.sin((135 * Math.PI) / 180) * 120;
+  const blueX = Math.cos(((135 + 180) * Math.PI) / 180) * 120;
+  const blueY = Math.sin(((135 + 180) * Math.PI) / 180) * 120;
 
   // Custom Inline CSS styles mapped from our Science Lab state parameters
   const labVariables = {
-    '--glass-opacity': `${glassOpacity / 100}`,
-    '--glass-blur': `${backdropBlur}px`,
+    '--glass-opacity': '0.40',
+    '--glass-blur': '20px',
   } as React.CSSProperties;
 
   // Dynamic Card Styles
   const cardStyle = {
-    borderRadius: `${borderRadius}px`,
+    borderRadius: '24px',
   };
 
   return (
     <div 
-      className="relative min-h-screen font-sans flex flex-col justify-between transition-all duration-300 select-none pb-24"
+      className={`relative min-h-screen font-sans flex flex-col justify-between transition-all duration-300 select-none pb-24 ${theme === 'light' ? 'bg-[#fafbfd] text-slate-900' : 'bg-slate-950 text-slate-100'}`}
       style={labVariables}
       onMouseMove={(e) => {
         setMouseCoords({ x: e.clientX, y: e.clientY });
       }}
     >
+      <motion.div
+        style={{
+          x: springX,
+          y: springY,
+          pointerEvents: 'none',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '400px',
+          height: '400px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(220, 240, 255, 0.2) 0%, transparent 70%)',
+          zIndex: 9999,
+        }}
+      />
       {/* ----------------- SCIENTIFIC BACKGROUND GUIDES ----------------- */}
-      <AnimatePresence>
-        {inspectorMode && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 pointer-events-none z-40"
-            style={{ opacity: gridOpacity / 100 }}
-          >
-            {/* Horizontal Alignment Guides with slightly enhanced contrast so they scale beautifully with opacity */}
-            <div className="absolute inset-x-0 top-1/4 border-t border-dashed border-rose-500/35" />
-            <div className="absolute inset-x-0 top-1/2 border-t border-dashed border-rose-500/35" />
-            <div className="absolute inset-x-0 top-3/4 border-t border-dashed border-rose-500/35" />
-            
-            {/* Margin Boundary Guides */}
-            <div className="absolute inset-y-0 left-4 md:left-12 lg:left-24 border-l border-dashed border-cyan-500/35" />
-            <div className="absolute inset-y-0 right-4 md:right-12 lg:right-24 border-r border-dashed border-cyan-500/35" />
-            
-            {/* 12-Column Layout Overlay */}
-            <div className="max-w-7xl mx-auto h-full px-4 md:px-12 lg:px-24 grid grid-cols-12 gap-4">
-              {Array.from({ length: 12 }).map((_, idx) => (
-                <div key={idx} className="h-full bg-cyan-500/10 border-x border-cyan-400/15" />
-              ))}
-            </div>
-
-            {/* Layout labels */}
-            <div className="absolute left-6 top-24 font-mono text-[9px] text-cyan-600 bg-white/90 px-1.5 py-0.5 rounded border border-cyan-500/20 shadow-xs">
-              M-LEFT: 24px-96px
-            </div>
-            <div className="absolute right-6 top-24 font-mono text-[9px] text-cyan-600 bg-white/90 px-1.5 py-0.5 rounded border border-cyan-500/20 shadow-xs">
-              M-RIGHT: 24px-96px
-            </div>
-            <div className="absolute left-1/2 top-4 -translate-x-1/2 font-mono text-[9px] text-rose-600 bg-white/90 px-1.5 py-0.5 rounded border border-rose-500/20 shadow-xs">
-              SYMMETRY AXIS | X=50%
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* ----------------- GRADIENT LIGHT AURA AT THE BOTTOM ----------------- */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute inset-0 bg-[#fafbfd]" />
+        <div className={`absolute inset-0 ${theme === 'light' ? 'bg-[#fafbfd]' : 'bg-slate-950'}`} />
         
         {/* Interactive Spotlight following cursor */}
         <div 
@@ -705,7 +691,7 @@ export default function App() {
           style={{
             left: `${mouseCoords.x - 225}px`,
             top: `${mouseCoords.y - 225}px`,
-            background: 'radial-gradient(circle, rgba(99,102,241,0.2) 0%, rgba(244,63,94,0.08) 50%, transparent 100%)',
+            background: 'radial-gradient(circle, rgba(220, 240, 255, 0.25) 0%, rgba(255, 230, 240, 0.15) 50%, transparent 100%)',
             transform: `translate3d(0, 0, 0) scale(${(glowIntensity / 50)})`,
           }}
         />
@@ -811,7 +797,7 @@ export default function App() {
       <header className="sticky top-6 z-40 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 mt-6">
         <div 
           className="glass-panel border border-white/60 shadow-[0_8px_32px_rgba(31,38,135,0.04)] px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4 transition-all duration-300"
-          style={{ borderRadius: `${borderRadius}px` }}
+          style={{ borderRadius: '24px' }}
         >
           {/* Brand/Identity */}
           <div className="flex flex-col items-start select-none">
@@ -870,7 +856,7 @@ export default function App() {
             <button
               onClick={() => setIsAboutOpen(true)}
               className="group flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 hover:from-blue-500/20 hover:to-indigo-500/20 border border-blue-500/20 hover:border-blue-500/35 text-slate-800 hover:text-slate-950 text-xs font-mono transition-all duration-300 shadow-xs cursor-pointer font-medium"
-              style={{ borderRadius: `${borderRadius - 4}px` }}
+              style={{ borderRadius: '20px' }}
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
@@ -889,7 +875,7 @@ export default function App() {
         {/* Intro - Premium Glass Card Structure with Gaussian Blur Textures */}
         <section 
           id="hero-intro"
-          className="glass-panel bg-white/35 backdrop-blur-3xl border border-white/50 shadow-2xl shadow-indigo-100/30 rounded-3xl p-8 md:p-14 mb-16 relative overflow-hidden text-center max-w-4xl mx-auto transition-all duration-500 hover:shadow-indigo-100/50 group"
+          className={`glass-panel backdrop-blur-3xl border shadow-2xl rounded-3xl p-8 md:p-14 mb-16 relative overflow-hidden text-center max-w-4xl mx-auto transition-all duration-500 group ${theme === 'light' ? 'bg-white/35 border-white/50 shadow-indigo-100/30' : 'bg-slate-800/30 border-white/10 shadow-black/30'}`}
         >
           {/* Internal blur glows inside the glass card to create ultimate premium depth */}
           <div className="absolute -top-12 -left-12 w-48 h-48 rounded-full bg-blue-400/20 blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
@@ -926,13 +912,13 @@ export default function App() {
               </span>
             </h1>
             
-            <h2 className="text-lg md:text-2xl font-light text-slate-800 mb-6 font-display tracking-wide max-w-xl mx-auto flex items-center justify-center gap-2">
+            <h2 className={`text-lg md:text-2xl font-light mb-6 font-display tracking-wide max-w-xl mx-auto flex items-center justify-center gap-2 ${theme === 'light' ? 'text-slate-800' : 'text-slate-300'}`}>
               <span className="h-px w-6 bg-slate-300" />
               <span>{language === 'zh' ? '以理性逻辑推演商业美学' : 'Deducing Commercial Aesthetics with Rational Logic'}</span>
               <span className="h-px w-6 bg-slate-300" />
             </h2>
 
-            <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-sans font-light">
+            <p className={`text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-sans font-light ${theme === 'light' ? 'text-slate-600' : 'text-slate-400'}`}>
               {language === 'zh' 
                 ? '汇集UI、品牌、主视觉、包装、3D全类设计，结合用户体验与商业需求，多元风格、多行业实战项目，展现完整设计落地能力。'
                 : 'Bringing together UI, branding, key visual, packaging, and 3D design, combining user experience with business needs. Diverse styles and practical projects across multiple industries showcase full-cycle execution and design delivery capabilities.'
@@ -943,27 +929,25 @@ export default function App() {
 
         {/* ----------------- WORKS GRID BENTO SYSTEM ----------------- */}
         <section className="mb-20">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-2">
-              <Compass className="w-5 h-5 text-blue-500" />
-              <h2 className="font-display font-bold text-lg tracking-wide text-slate-900">
-                {CATEGORIES.find(c => c.id === activeTab)?.label}
-              </h2>
-              <span className="text-xs text-slate-400 font-mono">
-                / {activeProjects.length} {language === 'zh' ? '作品展示' : 'Works'}
-              </span>
-            </div>
-            <div className="text-xs text-slate-400 flex items-center gap-1">
-              <Info className="w-3.5 h-3.5" />
-              <span>{language === 'zh' ? '点击作品卡片进入深度推导透视面板' : 'Click a card to enter deep analytical specs panel'}</span>
-            </div>
+          <div className="flex items-center gap-2 mb-8">
+            <Compass className="w-5 h-5 text-blue-500" />
+            <h2 className={`font-display font-bold text-lg tracking-wide ${theme === 'light' ? 'text-slate-900' : 'text-slate-100'}`}>
+              {CATEGORIES.find(c => c.id === activeTab)?.label}
+            </h2>
+            <span className="text-xs text-slate-400 font-mono">
+              / {activeProjects.length} {language === 'zh' ? '作品展示' : 'Works'}
+            </span>
+          </div>
+          <div className="text-xs text-slate-400 flex items-center gap-1 mb-6">
+            <Info className="w-3.5 h-3.5" />
+            <span>{language === 'zh' ? '点击作品卡片进入深度推导透视面板' : 'Click a card to enter deep analytical specs panel'}</span>
           </div>
 
           {/* Staggered container */}
           <motion.div 
             layout 
             className="grid grid-cols-1 lg:grid-cols-3 transition-all duration-300"
-            style={{ gap: `${gridGap}px` }}
+            style={{ gap: '24px' }}
           >
             {activeProjects.map((project, idx) => {
               const isPrimary = idx === 0;
@@ -1026,6 +1010,7 @@ export default function App() {
                                   src={BRAND_SLIDES[brandActiveStep].image} 
                                   alt={BRAND_SLIDES[brandActiveStep].title}
                                   referrerPolicy="no-referrer"
+                                  loading="lazy"
                                   className="max-w-full max-h-full object-contain pointer-events-none rounded-md transition-transform duration-700"
                                 />
                               </div>
@@ -1133,6 +1118,7 @@ export default function App() {
                                       src={slide.image} 
                                       alt={slide.title}
                                       referrerPolicy="no-referrer"
+                                      loading="lazy"
                                       className={`w-full h-full object-cover transition-all duration-500 ${
                                         isActive ? 'scale-105 opacity-100' : 'opacity-70 group-hover/thumb:opacity-100'
                                       }`}
@@ -1517,51 +1503,7 @@ export default function App() {
 
                       {/* Micro Sandbox HUD Toggles & Realtime Logs */}
                       <div className="z-20 bg-slate-50/80 p-3 border-t border-slate-100 space-y-2 shrink-0">
-                        {/* Interactive HUD guidelines Toggles */}
-                        {uiRenderStyle === 'mockup' && (
-                          <div className="flex flex-wrap gap-2 justify-center">
-                            <button
-                              onClick={() => {
-                                setUiShowGrid(!uiShowGrid);
-                                const log = `[${new Date().toLocaleTimeString()}] 📊 Grid Overlay toggled ${!uiShowGrid ? 'ON' : 'OFF'}.`;
-                                setUiHapticLogs(p => [log, ...p].slice(0, 5));
-                              }}
-                              className={`px-3 py-1 rounded-lg font-mono text-[9px] transition-all flex items-center gap-1.5 border ${
-                                uiShowGrid 
-                                  ? 'bg-cyan-50 text-cyan-700 border-cyan-200 shadow-xs' 
-                                  : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
-                              }`}
-                            >
-                              <Grid3X3 className="w-3 h-3" />
-                              <span>{language === 'zh' ? '4列对齐网格' : '4-Column Grid'}</span>
-                            </button>
 
-                            <button
-                              onClick={() => {
-                                setUiShowXRay(!uiShowXRay);
-                                const log = `[${new Date().toLocaleTimeString()}] 🔍 X-Ray Telemetric Magnifier toggled ${!uiShowXRay ? 'ON' : 'OFF'}.`;
-                                setUiHapticLogs(p => [log, ...p].slice(0, 5));
-                              }}
-                              className={`px-3 py-1 rounded-lg font-mono text-[9px] transition-all flex items-center gap-1.5 border ${
-                                uiShowXRay 
-                                  ? 'bg-indigo-50 text-indigo-700 border-indigo-200 shadow-xs' 
-                                  : 'bg-white text-slate-600 border-slate-200 hover:text-slate-900 hover:bg-slate-50'
-                              }`}
-                            >
-                              <Search className="w-3 h-3" />
-                              <span>{language === 'zh' ? '触控透视镜' : 'X-Ray Scanner'}</span>
-                            </button>
-                          </div>
-                        )}
-
-                        {/* Tiny Realtime Micro Log Terminal */}
-                        <div className="bg-slate-50 rounded-lg p-2 font-mono text-[8px] text-slate-600 border border-slate-200/80 overflow-hidden h-[42px] flex flex-col justify-end">
-                          <div className="space-y-0.5 overflow-hidden">
-                            {uiHapticLogs.slice(0, 1).map((log, index) => (
-                              <div key={index} className="truncate select-text text-slate-500">{log}</div>
-                            ))}
-                          </div>
-                        </div>
                       </div>
 
                       {/* Toast Notification overlay inside device canvas */}
@@ -1619,19 +1561,7 @@ export default function App() {
                     {/* Dark gradient mask */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent pointer-events-none" />
 
-                    {/* Scientific coordinate overlays (Visible when inspectorMode is on) */}
-                    {inspectorMode && (
-                      <div className="absolute inset-0 p-4 flex flex-col justify-between pointer-events-none font-mono text-[9px] text-white/90 z-20">
-                        <div className="flex justify-between items-start bg-black/40 p-2 rounded backdrop-blur-xs">
-                          <span>ANCHOR: TOP-LEFT [X:0, Y:0]</span>
-                          <span>RATIO: 4:3 COMPOSITE</span>
-                        </div>
-                        <div className="flex justify-between items-end bg-black/40 p-2 rounded backdrop-blur-xs">
-                          <span>CLIP_PATH: POLYGON_BOUNDS</span>
-                          <span>SCALE: 100% (HOVER: 103%)</span>
-                        </div>
-                      </div>
-                    )}
+
 
                     {/* Tags overlay */}
                     <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-1.5 z-10">
@@ -1654,11 +1584,6 @@ export default function App() {
                   <div className="p-6 bg-white/60 backdrop-blur-md flex-1 flex flex-col justify-between relative">
                     
                     {/* Bounding Box Info for Inspector Mode */}
-                    {inspectorMode && (
-                      <div className="absolute -top-3.5 left-4 z-20 font-mono text-[9px] text-rose-500 bg-rose-50 px-2 py-0.5 rounded border border-rose-200/60 shadow-xs">
-                        BOUNDS: w-full, padding-6, font-sans
-                      </div>
-                    )}
 
                     <div>
                       <div className="flex items-center justify-between mb-2">
@@ -1711,258 +1636,6 @@ export default function App() {
           </motion.div>
         </section>
 
-        {/* ----------------- INTERACTIVE SCIENCE LAB CONSOLE ----------------- */}
-        <section className="mb-20">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-2">
-              <Sliders className="w-5 h-5 text-pink-500 animate-pulse" />
-              <h2 className="font-display font-bold text-lg tracking-wide text-slate-900">
-                {language === 'zh' ? '交互科学控制台 (Interface Variables Console)' : 'Interface Variables Console'}
-              </h2>
-              <span className="text-xs text-slate-400 font-mono">/ Live Tuning</span>
-            </div>
-            
-            <button 
-              onClick={() => setIsConsoleExpanded(!isConsoleExpanded)}
-              className="flex items-center justify-between gap-2.5 px-4 py-2 bg-white/80 border border-slate-200/80 hover:border-slate-300 text-slate-700 hover:text-slate-950 hover:bg-white text-xs font-mono transition-all duration-300 shadow-sm font-medium self-start sm:self-auto cursor-pointer"
-              style={{ borderRadius: `${borderRadius - 4}px` }}
-            >
-              <span>
-                {isConsoleExpanded 
-                  ? (language === 'zh' ? '折叠控制面板' : 'Collapse Panel') 
-                  : (language === 'zh' ? '展开控制面板' : 'Expand Panel')}
-              </span>
-              <motion.div
-                animate={{ rotate: isConsoleExpanded ? 90 : 0 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-              >
-                <ChevronRight className="w-4 h-4" />
-              </motion.div>
-            </button>
-          </div>
-
-          <AnimatePresence initial={false}>
-            {isConsoleExpanded && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0, y: -10 }}
-                animate={{ height: 'auto', opacity: 1, y: 0 }}
-                exit={{ height: 0, opacity: 0, y: -10 }}
-                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="overflow-hidden"
-              >
-                <div 
-                  className="glass-panel border border-white/60 shadow-[0_8px_32px_rgba(31,38,135,0.03)] grid grid-cols-1 lg:grid-cols-3 gap-8 p-6 md:p-8"
-                  style={{ borderRadius: `${borderRadius}px` }}
-                >
-                  {/* Live Slider Controls */}
-                  <div className="lg:col-span-2 space-y-6">
-                    <div>
-                      <h3 className="text-xs font-semibold text-slate-800 mb-2 flex items-center justify-between">
-                        <span>{language === 'zh' ? '圆角弯曲率 (Border Radius Limit)' : 'Border Radius Limit'}</span>
-                        <span className="font-mono text-[10px] text-blue-500 bg-blue-50 px-1.5 py-0.5 rounded">{borderRadius}px</span>
-                      </h3>
-                      <input 
-                        type="range" 
-                        min="0" 
-                        max="24" 
-                        value={borderRadius} 
-                        onChange={(e) => setBorderRadius(Number(e.target.value))}
-                        className="w-full accent-blue-500"
-                      />
-                      <div className="flex justify-between font-mono text-[8px] text-slate-400 mt-1">
-                        <span>0px (Sharp Brutalist)</span>
-                        <span>12px (Standard Fluid)</span>
-                        <span>24px (Soft Organic)</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs font-semibold text-slate-800 mb-2 flex items-center justify-between">
-                        <span>{language === 'zh' ? '背景高斯模糊 (Backdrop Gaussian Blur)' : 'Backdrop Gaussian Blur'}</span>
-                        <span className="font-mono text-[10px] text-pink-500 bg-pink-50 px-1.5 py-0.5 rounded">{backdropBlur}px</span>
-                      </h3>
-                      <input 
-                        type="range" 
-                        min="0" 
-                        max="40" 
-                        value={backdropBlur} 
-                        onChange={(e) => setBackdropBlur(Number(e.target.value))}
-                        className="w-full accent-pink-500"
-                      />
-                      <div className="flex justify-between font-mono text-[8px] text-slate-400 mt-1">
-                        <span>0px (Transparent glass)</span>
-                        <span>20px (Translucent veil)</span>
-                        <span>40px (Frost opaque)</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs font-semibold text-slate-800 mb-2 flex items-center justify-between">
-                        <span>{language === 'zh' ? '网格模量间距 (Bento Grid Gap)' : 'Bento Grid Gap'}</span>
-                        <span className="font-mono text-[10px] text-teal-500 bg-teal-50 px-1.5 py-0.5 rounded">{gridGap}px</span>
-                      </h3>
-                      <input 
-                        type="range" 
-                        min="12" 
-                        max="36" 
-                        value={gridGap} 
-                        onChange={(e) => setGridGap(Number(e.target.value))}
-                        className="w-full accent-teal-500"
-                      />
-                      <div className="flex justify-between font-mono text-[8px] text-slate-400 mt-1">
-                        <span>12px (Compact Data)</span>
-                        <span>24px (Harmonic Air)</span>
-                        <span>36px (Spacious Gallery)</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs font-semibold text-slate-800 mb-2 flex items-center justify-between">
-                        <span>{language === 'zh' ? '环境漫反射光源角度 (Ambient Aura Light Angle)' : 'Ambient Aura Light Angle'}</span>
-                        <span className="font-mono text-[10px] text-violet-500 bg-violet-50 px-1.5 py-0.5 rounded">{ambientAngle}°</span>
-                      </h3>
-                      <input 
-                        type="range" 
-                        min="0" 
-                        max="360" 
-                        value={ambientAngle} 
-                        onChange={(e) => setAmbientAngle(Number(e.target.value))}
-                        className="w-full accent-violet-500"
-                      />
-                      <div className="flex justify-between font-mono text-[8px] text-slate-400 mt-1">
-                        <span>0° (Right Horizon)</span>
-                        <span>135° (Bottom Diagonal)</span>
-                        <span>360° (Full Orbit)</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs font-semibold text-slate-800 mb-2 flex items-center justify-between">
-                        <span>{language === 'zh' ? '玻璃底板透明度 (Glass Background Opacity)' : 'Glass Background Opacity'}</span>
-                        <span className="font-mono text-[10px] text-amber-500 bg-amber-50 px-1.5 py-0.5 rounded">{glassOpacity}%</span>
-                      </h3>
-                      <input 
-                        type="range" 
-                        min="30" 
-                        max="95" 
-                        value={glassOpacity} 
-                        onChange={(e) => setGlassOpacity(Number(e.target.value))}
-                        className="w-full accent-amber-500"
-                      />
-                      <div className="flex justify-between font-mono text-[8px] text-slate-400 mt-1">
-                        <span>30% (High Transmission)</span>
-                        <span>75% (Balanced Solid)</span>
-                        <span>95% (Opaque White)</span>
-                      </div>
-                    </div>
-
-                    {/* Grid Alignment Service & Transparency Controls */}
-                    <div className="border-t border-slate-100 pt-5 mt-5 space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="text-xs font-semibold text-slate-800 flex items-center gap-1.5">
-                            <Grid3X3 className="w-3.5 h-3.5 text-indigo-500" />
-                            <span>{language === 'zh' ? '网格对齐辅助服务 (Grid Guide Alignment Service)' : 'Grid Guide Alignment Service'}</span>
-                          </h4>
-                          <p className="text-[9px] text-slate-400 font-light mt-0.5">
-                            {language === 'zh' ? '开启或完全关闭对齐透视辅助线渲染' : 'Enable or completely turn off alignment guide perspective'}
-                          </p>
-                        </div>
-                        <button
-                          onClick={() => setInspectorMode(!inspectorMode)}
-                          className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-hidden ${
-                            inspectorMode ? 'bg-indigo-600' : 'bg-slate-200'
-                          }`}
-                        >
-                          <span
-                            className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-xs ring-0 transition duration-200 ease-in-out ${
-                              inspectorMode ? 'translate-x-4' : 'translate-x-0'
-                            }`}
-                          />
-                        </button>
-                      </div>
-
-                      {inspectorMode && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.25 }}
-                          className="pt-2"
-                        >
-                          <h3 className="text-xs font-semibold text-slate-800 mb-2 flex items-center justify-between">
-                            <span>{language === 'zh' ? '网格线透明度 (Grid Guides Transparency)' : 'Grid Guides Transparency'}</span>
-                            <span className="font-mono text-[10px] text-indigo-500 bg-indigo-50 px-1.5 py-0.5 rounded">{gridOpacity}%</span>
-                          </h3>
-                          <input 
-                            type="range" 
-                            min="0" 
-                            max="100" 
-                            value={gridOpacity} 
-                            onChange={(e) => setGridOpacity(Number(e.target.value))}
-                            className="w-full accent-indigo-500"
-                          />
-                          <div className="flex justify-between font-mono text-[8px] text-slate-400 mt-1">
-                            <span>0% (Fully Transparent)</span>
-                            <span>20% (Subtle Alignment)</span>
-                            <span>100% (Crisp Solid Specs)</span>
-                          </div>
-                        </motion.div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Real-time Code Output & Visual feedback */}
-                  <div className="flex flex-col justify-between bg-slate-950 rounded-lg p-5 text-slate-300 font-mono text-xs shadow-inner">
-                    <div>
-                      <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
-                        <div className="flex items-center gap-2">
-                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                          <span className="text-[10px] uppercase text-slate-400">Layout System CSS Specs</span>
-                        </div>
-                        <button 
-                          onClick={() => {
-                            setBorderRadius(24);
-                            setBackdropBlur(20);
-                            setGridGap(24);
-                            setAmbientAngle(135);
-                            setGlassOpacity(40);
-                            setGridOpacity(20);
-                            setInspectorMode(false);
-                          }}
-                          className="p-1 text-slate-500 hover:text-white transition-colors duration-200"
-                          title="Reset to initial state"
-                        >
-                          <RefreshCw className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-
-                      <pre className="text-[11px] leading-relaxed text-slate-300 overflow-x-auto select-text">
-{`:root {
-  --border-radius: `}<span className="text-amber-400">{borderRadius}px</span>{`;
-  --backdrop-blur: `}<span className="text-cyan-400">{backdropBlur}px</span>{`;
-  --bento-grid-gap: `}<span className="text-emerald-400">{gridGap}px</span>{`;
-  --glass-opacity: `}<span className="text-pink-400">{(glassOpacity/100).toFixed(2)}</span>{`;
-  --ambient-angle: `}<span className="text-violet-400">{ambientAngle}deg</span>{`;
-  --grid-guides: `}<span className="text-rose-400">{inspectorMode ? 'active' : 'inactive'}</span>{`;
-  --grid-opacity: `}<span className="text-indigo-400">{(gridOpacity/100).toFixed(2)}</span>{`;
-}`}
-                      </pre>
-                    </div>
-
-                    <div className="border-t border-slate-800 pt-3 mt-4 text-[10px] text-slate-400 leading-normal">
-                      {language === 'zh' ? (
-                        <p>💡 <span className="font-semibold text-slate-200">科学交互论证：</span>调整滑块将实时更改页面所有卡片的高斯模糊、圆角幅度、布局间隔及背景混合光源，体验纯代码控制下的几何物理一致性。</p>
-                      ) : (
-                        <p>💡 <span className="font-semibold text-slate-200">Interaction Theory:</span> Adjusting these values modifies CSS variables instantly across all cards, illustrating code-driven mathematical alignment and physics-based geometric consistency.</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </section>
 
       </main>
 
@@ -1985,19 +1658,19 @@ export default function App() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 26, stiffness: 220 }}
-              className="relative w-full max-w-4xl h-full bg-white shadow-2xl overflow-y-auto flex flex-col z-10 border-l border-slate-100"
+              className={`relative w-full max-w-4xl h-full shadow-2xl overflow-y-auto flex flex-col z-10 border-l ${theme === 'light' ? 'bg-white border-slate-100' : 'bg-slate-900 border-slate-700'}`}
             >
               {/* Sticky Top Header */}
-              <div className="sticky top-0 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex items-center justify-between z-30">
+              <div className={`sticky top-0 backdrop-blur-md border-b px-6 py-4 flex items-center justify-between z-30 ${theme === 'light' ? 'bg-white/90 border-slate-100' : 'bg-slate-900/90 border-slate-700'}`}>
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-slate-100 rounded-lg">
                     <Cpu className="w-5 h-5 text-blue-500" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-base text-slate-900">
+                    <h3 className={`font-display font-bold text-base ${theme === 'light' ? 'text-slate-900' : 'text-slate-100'}`}>
                       {language === 'zh' ? selectedProject.chineseTitle : selectedProject.title}
                     </h3>
-                    <p className="font-mono text-xs text-slate-400 uppercase tracking-widest">
+                    <p className={`font-mono text-xs uppercase tracking-widest ${theme === 'light' ? 'text-slate-400' : 'text-slate-500'}`}>
                       {language === 'zh' ? selectedProject.title : selectedProject.chineseTitle}
                     </p>
                   </div>
@@ -2272,7 +1945,7 @@ export default function App() {
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="glass-panel relative w-full max-w-2xl border border-white/80 shadow-[0_24px_64px_rgba(0,0,0,0.12)] bg-white/95 overflow-hidden flex flex-col z-10"
-              style={{ borderRadius: `${borderRadius}px` }}
+              style={{ borderRadius: '24px' }}
             >
               {/* Top Bar Decoration */}
               <div className="h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-violet-600 w-full" />
