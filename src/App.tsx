@@ -325,20 +325,6 @@ export default function App() {
       ]
     },
     {
-      title: '微观睡眠音疗频段拆解',
-      englishTitle: 'Micro-Sleep Sound Therapy Frequency Breakdown',
-      image: 'https://bee-reg-ab.imagency.cn/e/3eabd64a212d23e02121b1126fd2c4eb.png',
-      desc: '利用高频赫兹时域图解剖深度睡眠脑波段分布，支持多频段音疗阻抗与脑电状态映射。',
-      englishDesc: 'Deep sleep soundscape analyzer charting brainwave frequency curves and EEG state coordination metrics.',
-      tag: 'Sound Therapy',
-      flow: 'sleep',
-      metrics: [
-        { label: 'Frequency Range', value: '0.5-4Hz Delta' },
-        { label: 'Coherence Index', value: '94.2%' },
-        { label: 'Noise Rejection', value: '-42dB' }
-      ]
-    },
-    {
       title: 'AI 听觉医疗健康诊断中枢',
       englishTitle: 'AI Audiology & Acoustic Diagnosis',
       image: 'https://bee-reg-ab.imagency.cn/e/9505d2cdddaf0ac564d86e679814badc.png',
@@ -350,6 +336,20 @@ export default function App() {
         { label: 'Generative Delay', value: '180ms' },
         { label: 'Token Speed', value: '85 tok/s' },
         { label: 'Style Links', value: 'Active' }
+      ]
+    },
+    {
+      title: '微观睡眠音疗频段拆解',
+      englishTitle: 'Micro-Sleep Sound Therapy Frequency Breakdown',
+      image: 'https://bee-reg-ab.imagency.cn/e/5f046d9a0c70e8b2f5745a7a1fc04311.png',
+      desc: '利用高频赫兹时域图解剖深度睡眠脑波段分布，支持多频段音疗阻抗与脑电状态映射。',
+      englishDesc: 'Deep sleep soundscape analyzer charting brainwave frequency curves and EEG state coordination metrics.',
+      tag: 'Sound Therapy',
+      flow: 'sleep',
+      metrics: [
+        { label: 'Frequency Range', value: '0.5-4Hz Delta' },
+        { label: 'Coherence Index', value: '94.2%' },
+        { label: 'Noise Rejection', value: '-42dB' }
       ]
     },
     {
@@ -381,20 +381,6 @@ export default function App() {
       ]
     },
     {
-      title: '个人云端音乐中心与账户同步',
-      englishTitle: 'Personal Cloud Library & Account Sync',
-      image: 'https://bee-reg-ab.imagency.cn/e/214eba8a1442651f0293e40604fb19d3.png',
-      desc: '支持多端无缝同步，无损音轨云端备份与智能音乐包空间管理，呈现个人听歌成就档案与收藏夹。',
-      englishDesc: 'Seamless multi-terminal synchronization, lossless track cloud backup, and space-optimized digital music package allocation with listener profiles.',
-      tag: 'Cloud Sync',
-      flow: 'settings',
-      metrics: [
-        { label: 'Sync Latency', value: '<50ms' },
-        { label: 'Cloud Storage', value: '2TB Max' },
-        { label: 'Auth Protocol', value: 'OAuth2' }
-      ]
-    },
-    {
       title: '听觉保护与音量限制',
       englishTitle: 'Acoustic Protection & Decibel Limit',
       image: 'https://bee-reg-ab.imagency.cn/e/c615d3b12b5945fbbe35e6ba8fa1ae89.png',
@@ -406,6 +392,20 @@ export default function App() {
         { label: 'dB Threshold', value: '80dB' },
         { label: 'Expose Limit', value: '45 Mins' },
         { label: 'Muffle Ratio', value: '-6.2dB' }
+      ]
+    },
+    {
+      title: '个人云端音乐中心与账户同步',
+      englishTitle: 'Personal Cloud Library & Account Sync',
+      image: 'https://bee-reg-ab.imagency.cn/e/214eba8a1442651f0293e40604fb19d3.png',
+      desc: '支持多端无缝同步，无损音轨云端备份与智能音乐包空间管理，呈现个人听歌成就档案与收藏夹。',
+      englishDesc: 'Seamless multi-terminal synchronization, lossless track cloud backup, and space-optimized digital music package allocation with listener profiles.',
+      tag: 'Cloud Sync',
+      flow: 'settings',
+      metrics: [
+        { label: 'Sync Latency', value: '<50ms' },
+        { label: 'Cloud Storage', value: '2TB Max' },
+        { label: 'Auth Protocol', value: 'OAuth2' }
       ]
     }
   ];
@@ -1984,7 +1984,7 @@ export default function App() {
                     <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-blue-500 via-indigo-500 to-violet-500 p-0.5 shrink-0 flex items-center justify-center shadow-lg border border-white/10 hover:rotate-6 transition-transform duration-300">
                       <div className="w-full h-full rounded-full bg-slate-950 overflow-hidden flex items-center justify-center">
                         <img 
-                          src="https://bee-reg-ab.imagency.cn/e/c615d3b12b5945fbbe35e6ba8fa1ae89.png" 
+                          src="https://bee-reg-ab.imagency.cn/e/74f753666497c274d299a3ea91e85f44.png" 
                           alt="张恒" 
                           referrerPolicy="no-referrer"
                           className="w-full h-full object-cover"
