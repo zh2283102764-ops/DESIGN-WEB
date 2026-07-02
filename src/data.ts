@@ -1,11 +1,11 @@
 import { Project } from './types';
 
 // High-quality professional design photography URLs to ensure robust compilation
-const uiDesignShowcase = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80';
-const fengZhiColdChain = 'https://i.postimg.cc/68jkDd49/brand-hero-jpg.jpg';
-const visualDesignShowcase = 'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/jimeng-2026-03-05-6333-%E5%A2%9E%E5%BC%BA%E7%99%BD%E6%A8%A1%E7%9A%84%E8%B4%A8%E6%84%9F%E5%92%8C%E7%AB%8B%E4%BD%93%E6%84%9F%EF%BC%8C%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87%E4%B8%8A%E6%96%B9%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E5%AD%97%EF%BC%8C%E4%BF%9D%E7%95%99%E5%8E%9F%E5%9C%BA%E6%99%AF%E7%9A%84%E5%85%83%E7%B4%A0%E5%92%8C%E6%9E%84%E5%9B%BE%EF%BC%8C%E5%BC%BA%E8%B0%83%E8%BD%AE%E5%BB%93_.png';
-const packagingDesignShowcase = 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80';
-const threeDDesignShowcase = 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80';
+const uiDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/0775c5a154634b0c3972118109ee02bf.jpg';
+const fengZhiColdChain = 'https://bee-reg-ab.imagency.cn/e/a21b7acee1d814d3a6f00ce689daeef9.jpg';
+const visualDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/c823038ae169471669290d74decd6830.jpg';
+const packagingDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/2f6f587f6c588b69b2e9da9d2e6dfa9c.jpg';
+const threeDDesignShowcase = 'https://bee-reg-ab.imagency.cn/e/f52b3e45de0fce07bb88fc0815f71bd7.jpg';
 
 export const CATEGORIES = [
   { id: 'ui', label: 'UI设计', englishLabel: 'UI Design' },
@@ -140,50 +140,6 @@ export const PROJECTS: Project[] = [
       ]
     }
   },
-  {
-    id: 'visual-kinetic-chroma',
-    title: 'E-Commerce Key Visual Design',
-    chineseTitle: '电商主视觉设计案例',
-    category: 'visual',
-    year: '2026',
-    description: 'This key visual design was completed leveraging industry-leading AIGC tools combined with initial creative sketch concepts.',
-    chineseDescription: '本此次设计借助行业主流AIGC加上前期草图创意构想完成主视觉设计。',
-    imageUrl: 'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260701172952_1259_19.jpg',
-    images: [
-      'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260701172952_1259_19.jpg',
-      'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260701172953_1260_19.jpg'
-    ],
-    tags: ['AIGC Core', 'Visual Layout', 'E-Commerce Art', 'Color Grading'],
-    metrics: [
-      { label: 'Interactive CTR', value: '24.5%' },
-      { label: 'Frame Consistency', value: '120fps' },
-      { label: 'Awards Nominated', value: 'ADC Design' }
-    ],
-    specs: {
-      gridSystem: 'Golden Ratio Multi-Grid Composition',
-      spacingUnit: 'Fluid Spacing Hierarchy',
-      typography: {
-        heading: 'Brand Custom Display Bold',
-        body: 'Neutral Sans-Serif Regular',
-        scaling: 'Optimized Mobile Reading Scale'
-      },
-      colorPalette: [
-        { name: 'Warm Sunset Glow', hex: '#FF7A45', usage: 'Core highlighting and product background illumination' },
-        { name: 'Pure Canvas White', hex: '#FFFFFF', usage: 'Symmetrical spacing and negative space boundaries' },
-        { name: 'E-Commerce Charcoal', hex: '#1E1E24', usage: 'High-contrast typography reading paths' }
-      ]
-    },
-    interactiveLogic: {
-      objective: 'Display a symmetrical side-by-side e-commerce poster design mockup showcasing AIGC-driven visual fidelity.',
-      scientificApproach: 'Presented in an elegant multi-image layout with custom spacing and hover-zoom ratios.',
-      userFlowSteps: [
-        'Hover over either image to trigger individual optical focus and zoom mechanics.',
-        'Toggle inspection mode to overlay grid alignments and compositional proportions on top of the posters.',
-        'View specifications details directly on the side details inspector.'
-      ]
-    }
-  },
-
   // ================= PACKAGING DESIGN =================
   {
     id: 'pack-islands-skincare',
@@ -193,11 +149,7 @@ export const PROJECTS: Project[] = [
     year: '2026',
     description: 'This packaging design was rendered and produced using C4D and Octane Renderer (OC) to deliver pristine visual fidelity.',
     chineseDescription: '此次包装设计采用C4D与OC渲染器进行渲染制作',
-    imageUrl: 'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/Beauty2.png',
-    images: [
-      'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/Beauty2.png',
-      'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/Beauty3.png'
-    ],
+    imageUrl: packagingDesignShowcase,
     tags: ['C4D Render', 'OC Renderer', 'FMCG Packaging', 'Tactile Layout'],
     metrics: [
       { label: 'Eco-Material Score', value: '100%' },
@@ -228,49 +180,6 @@ export const PROJECTS: Project[] = [
       ]
     }
   },
-  {
-    id: 'pack-morphic-capsules',
-    title: 'Zhongjing Yangsheng FMCG Packaging Design',
-    chineseTitle: '仲景养生快消品包装设计案例',
-    category: 'packaging',
-    year: '2026',
-    description: 'This packaging design was rendered and produced using C4D and Octane Renderer (OC) to deliver pristine visual fidelity.',
-    chineseDescription: '此次包装设计采用C4D与OC渲染器进行渲染制作',
-    imageUrl: 'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/Beauty.png',
-    images: [
-      'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/Beauty.png',
-      'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/Beauty1.png'
-    ],
-    tags: ['C4D Render', 'OC Renderer', 'FMCG Packaging', 'Tactile Layout'],
-    metrics: [
-      { label: 'Eco-Material Score', value: '100%' },
-      { label: 'Physical Grip Satisfaction', value: '4.8/5' },
-      { label: 'Refillable Loop Efficiency', value: '92.4%' }
-    ],
-    specs: {
-      gridSystem: 'Golden Ratio Multi-Grid Composition',
-      spacingUnit: 'Fluid Spacing Hierarchy',
-      typography: {
-        heading: 'Brand Custom Display Bold',
-        body: 'Neutral Sans-Serif Regular',
-        scaling: 'Optimized Mobile Reading Scale'
-      },
-      colorPalette: [
-        { name: 'Warm Sunset Glow', hex: '#FF7A45', usage: 'Core highlighting and product background illumination' },
-        { name: 'Pure Canvas White', hex: '#FFFFFF', usage: 'Symmetrical spacing and negative space boundaries' },
-        { name: 'E-Commerce Charcoal', hex: '#1E1E24', usage: 'High-contrast typography reading paths' }
-      ]
-    },
-    interactiveLogic: {
-      objective: 'Display a symmetrical side-by-side packaging design mockup showcasing AIGC-driven visual fidelity.',
-      scientificApproach: 'Presented in an elegant multi-image layout with custom spacing and hover-zoom ratios.',
-      userFlowSteps: [
-        'Hover over either image to trigger individual optical focus and zoom mechanics.',
-        'Toggle inspection mode to overlay grid alignments and compositional proportions on top of the packaging.',
-        'View specifications details directly on the side details inspector.'
-      ]
-    }
-  },
 
   // ================= 3D DESIGN =================
   {
@@ -281,7 +190,7 @@ export const PROJECTS: Project[] = [
     year: '2026',
     description: 'Blender cartoon miniature styling and creative scene rendering.',
     chineseDescription: 'Blender卡通小场景设计建模与渲染案例。',
-    imageUrl: 'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E9%9B%86-14.jpg',
+    imageUrl: threeDDesignShowcase,
     tags: ['Blender 3D', 'Cartoon Scene', 'Octane Render', 'Lighting Rig'],
     metrics: [
       { label: 'Render Complexity', value: '12M Polys' },
@@ -309,45 +218,6 @@ export const PROJECTS: Project[] = [
         'Hovering over the 3D sculpture triggers fluid metallic ripples calculated using real-time wave formulas.',
         'User can customize glass dispersion density values using a floating control panel.',
         'A single click splits the mesh wireframes, revealing the underlying structural polygon mathematical coordinates.'
-      ]
-    }
-  },
-  {
-    id: 'three-d-brutalist-monolith',
-    title: 'Hollow Knight Modeling & Rendering',
-    chineseTitle: '空洞骑士建模与渲染案例',
-    category: '3d',
-    year: '2025',
-    description: 'Hollow Knight character design, modeling, and ambient scene rendering.',
-    chineseDescription: '空洞骑士建模与渲染案例。',
-    imageUrl: 'https://raw.githubusercontent.com/zh2283102764-ops/images-photo/refs/heads/main/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81%E9%9B%86-16.jpg',
-    tags: ['Hollow Knight', 'Character Model', 'Atmospheric Fog', 'Subsurface Scattering'],
-    metrics: [
-      { label: 'Subsurface Scattering', value: '0.42' },
-      { label: 'Light Sources', value: '4 Points' },
-      { label: 'Polygon Count', value: '4.8M' }
-    ],
-    specs: {
-      gridSystem: 'Architectural Modular Concrete Formwork Grid',
-      spacingUnit: 'Golden Ratio Structural Divisions (0.618m base module)',
-      typography: {
-        heading: 'PP Neue Montreal (Sleek brutalist)',
-        body: 'JetBrains Mono',
-        scaling: 'Fibonacci Scale Progression'
-      },
-      colorPalette: [
-        { name: 'Raw Formwork Concrete', hex: '#4B5563', usage: '95% structural surfaces; mimics physical tactile roughness' },
-        { name: 'Digital Laser Red', hex: '#EF4444', usage: 'Laser precision lines highlighting concrete imperfections' },
-        { name: 'Eerie Shadow Depth', hex: '#030712', usage: 'Deep dark cavities representing void volume and physical weight' }
-      ]
-    },
-    interactiveLogic: {
-      objective: 'Evoke emotional awe by contrasting physical industrial permanence with highly fragile digital code structures.',
-      scientificApproach: 'Mapped micro-shadow and occlusion maps to the scrollbar position, making the ambient shadows seem to slowly crawl across the concrete columns as the user navigates downward, mirroring a solar sunset.',
-      userFlowSteps: [
-        'On Scroll, volumetric laser lines project outward from structural edges.',
-        'Dragging the screen changes the directional vector of the sun, casting long crisp shadows over text columns.',
-        'Double-clicking concrete surfaces triggers a macro high-resolution zoom inspecting surface grain calculations.'
       ]
     }
   }
